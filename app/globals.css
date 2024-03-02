@@ -1,0 +1,78 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap')
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+/* START: General styles */
+.max-width {
+  @apply max-w-[1440px] mx-auto;
+}
+
+.padding-x {
+  @apply sm:px-16 px-6;
+}
+
+.padding-y {
+  @apply py-4;
+}
+
+.flex-center {
+  @apply flex items-center justify-center;
+}
+
+.flex-between {
+  @apply flex justify-between items-center;
+}
+
+.custom-btn {
+  @apply flex flex-row relative justify-center items-center py-3 px-6 outline-none;
+}
+/* END: General styles */
+
+/* START: Home styles */
+.home {
+  @apply flex xl:flex-row flex-col gap-5 relative z-0 max-w-[1440px] mx-auto bg-bg-color ;
+}
+
+.home__title {
+  @apply  md:text-[48px] text-custom-blue font-semibold md:px-24;
+}
+
+.home__subtitle {
+  @apply text-[30px] text-custom-blue font-semibold mt-5;
+}
+
+.home__para {
+  @apply text-[16px] text-black-100 font-normal mt-5 md:px-24;
+}
+
+/* END: Home styles */
+
+
+/* START: Genre styles */
+.genre{
+  @apply bg-bg-color grid md:grid-cols-2 gap-4 md:py-16 md:px-24 py-8;
+}
+
+.genre-icon{
+  @apply m-2;
+}
+
+.genre-card{
+  @apply rounded-md px-2.5 py-2 h-12 shadow-md flex items-center cursor-pointer bg-white mx-5 mb-3 ;
+}
+
+.genre-arrow{
+   @apply ml-auto mr-3;
+}
+
+/* END: Genre styles */
+

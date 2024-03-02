@@ -1,0 +1,103 @@
+.bookList {
+    background-color:#F8F7FF ;
+    display: flex;
+    flex-wrap: wrap; /* Allow items to wrap to the next row */
+    justify-content: space-between; /* Add space between items */
+    padding: 10px;
+  }
+
+  @media (min-width: 768px) {
+    .bookList {
+      padding: 20px 180px 50px 180px;
+    }
+  }
+
+.bookCard {
+    width: 130px;
+    height: 250px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 5px;
+    cursor: pointer;
+}
+  
+.bookCover {
+    width: 114px;
+    height: 162px;
+    border-radius: 8px;
+    box-shadow: 0 2px 5px 0 rgba(211, 209, 238, 0.5);
+    margin-bottom: auto;
+  }
+  
+  .bookTitle {
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    font-size: 12px;
+    color: #333333;
+    margin: 5px 2px auto 2px;
+    text-transform: uppercase;
+  }
+  
+  .authorsName {
+    font-family: "Montserrat", sans-serif;
+    font-weight: normal;
+    padding: 0px;
+    font-size: 12px;
+    color: #A0A0A0;
+    margin: 2px;
+  }
+
+
+  .genreTitle{
+    display: flex;
+    align-items: center;
+    
+  }
+  @media (min-width: 768px) {
+    .genreTitle {
+      margin: 5px auto 5px 160px;
+    }
+  }
+
+  .genreName{
+    font-family: "Montserrat", sans-serif;
+    font-size: 30px;
+    font-weight: bold;
+    color: #5E56E7;
+    margin: 10px;
+    text-transform: capitalize;
+  }
+
+  .backArrow{
+    cursor: pointer;
+  }
+
+
+  .searchInput {
+    font-family: "Montserrat", sans-serif;
+    border-radius: 4px;
+    padding: 0 10px 0 40px;
+    height: 40px;
+    border: 1pt solid #F0F0F6;
+    background-color: #F0F0F6;
+    font-size: 16px;
+    outline: none;
+    background-image: url('../public/Search.svg');
+    background-repeat: no-repeat;
+    background-position: 10px center;
+    width: calc(100% - 50px);
+    margin-bottom: 15px;
+  }
+
+@media (min-width: 768px) {
+    .searchInput {
+      margin: 5px 150 10px 150;
+    }
+  }
+
+.searchInput:focus {
+  border-color: #5E56E7; 
+  box-shadow: 0 0 0 1px #5E56E7; 
+}
+
