@@ -26,7 +26,7 @@ interface BookListProps {
 const BookList: React.FC<BookListProps> = ({ books }) => {
   const handleBookClick = (format: string | undefined) => {
     if (!format) {
-      alert('No viewable version available);
+      alert('No viewable version available.');
       return;
     }
 
