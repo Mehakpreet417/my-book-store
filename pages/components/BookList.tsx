@@ -26,33 +26,38 @@ interface BookListProps {
 const BookList: React.FC<BookListProps> = ({ books }) => {
   const handleBookClick = (format: string | undefined) => {
     if (!format) {
-      // If no format is available, display an alert
-      alert('No viewable version available');
+      alert('No viewable version available);
       return;
     }
 
-    // Check for preferred formats and open the link in the browser
     const preferredFormats = ['text/html', 'application/pdf', 'text/plain; charset=us-ascii'];
-    const availableFormats = Object.keys(books[0].formats);
+    const availableFormats = Object.keys(formats);
 
     for (const preferredFormat of preferredFormats) {
       if (availableFormats.includes(preferredFormat)) {
-        window.open(books[0].formats[preferredFormat]);
+        window.open(formats[preferredFormat]);
         return;
       }
     }
 
-    // If none of the preferred formats are available, open the first available format
-    window.open(books[0].formats[availableFormats[0]]);
+    window.open(formats[availableFormats[0]]);
   };
 
   return (
-    <div  className={styles.bookList}>
+    <div className={styles.bookList}>
       {books.map((book) => (
         <div key={book.id} onClick={() => handleBookClick(book.formats['image/jpeg'])}>
           <div className={styles.bookCard}>
             <div className={styles.cover}>
-              <Image className={styles.bookCover} src={book.formats['image/jpeg']} alt={`Cover of ${book.title}`} width={50} height={60} />
+              {book.formats['image/jpeg'] && (
+                <Image
+                  className={styles.bookCover}
+                  src={book.formats['image/jpeg']}
+                  alt={`Cover of ${book.title}`}
+                  width={50}
+                  height={60}
+                />
+              )}
             </div>
             <div className={styles.bookDetails}>
               <h3 className={styles.bookTitle}>{book.title}</h3>
