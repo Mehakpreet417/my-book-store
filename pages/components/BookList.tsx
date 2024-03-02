@@ -24,29 +24,28 @@ interface BookListProps {
 }
 
 const BookList: React.FC<BookListProps> = ({ books }) => {
-  const handleBookClick = (format: string | undefined) => {
-    if (!format) {
-      alert('No viewable version available.');
-      return;
-    }
-
+  const handleBookClick = (book: Book) => {
+    // Define preferred formats in descending order of preference
     const preferredFormats = ['text/html', 'application/pdf', 'text/plain; charset=us-ascii'];
-    const availableFormats = Object.keys(formats);
-
-    for (const preferredFormat of preferredFormats) {
-      if (availableFormats.includes(preferredFormat)) {
-        window.open(formats[preferredFormat]);
+  
+    // Iterate through preferred formats
+    for (const format of preferredFormats) {
+      // Check if the book has the current format
+      if (book.formats[format]) {
+        // Open the link in the browser
+        window.open(book.formats[format]);
         return;
       }
     }
-
-    window.open(formats[availableFormats[0]]);
+  
+    // If none of the preferred formats are available, display an alert
+    alert('No viewable version available');
   };
 
   return (
     <div className={styles.bookList}>
       {books?.map((book) => (
-        <div key={book.id} onClick={() => handleBookClick(book.formats['image/jpeg'])}>
+        <div key={book.id} onClick={() => handleBookClick(book)}>
           <div className={styles.bookCard}>
             <div className={styles.cover}>
               {book.formats['image/jpeg'] && (
