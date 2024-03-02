@@ -45,7 +45,7 @@ const BookList: React.FC<BookListProps> = ({ books }) => {
 
   return (
     <div className={styles.bookList}>
-      {books.map((book) => (
+      {books?.map((book) => (
         <div key={book.id} onClick={() => handleBookClick(book.formats['image/jpeg'])}>
           <div className={styles.bookCard}>
             <div className={styles.cover}>
